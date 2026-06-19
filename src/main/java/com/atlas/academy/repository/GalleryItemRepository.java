@@ -1,0 +1,11 @@
+package com.atlas.academy.repository;
+
+import com.atlas.academy.entity.GalleryItem;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface GalleryItemRepository extends JpaRepository<GalleryItem, Long> {
+    List<GalleryItem> findByCategoryIgnoreCaseOrderByCreatedAtDesc(String category);
+    List<GalleryItem> findAllByOrderByCreatedAtDesc();
+}
